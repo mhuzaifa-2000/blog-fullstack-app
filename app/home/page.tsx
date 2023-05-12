@@ -2,13 +2,11 @@ import Navbar from "@/components/Navbar";
 import React, { useEffect } from "react";
 import prisma from "@/lib/prisma";
 import Feeds from "@/components/Feeds";
-import {Feed, PostWithAuthor} from "@/types/Feed";
-
+import { Post, User } from "@/types/Feed";
 
 const HomePage = async () => {
-  
-  let pos: Feed[] = [];
-  let posts: PostWithAuthor[] = [...];
+  let pos: Post[] = [];
+  let posts: Post[] = [];
   try {
     posts = await prisma.post.findMany({
       where: { published: true },
@@ -25,7 +23,7 @@ const HomePage = async () => {
   return (
     <main className="flex min-h-screen flex-col p-24">
       <Navbar />
-      <Feeds feeds={feed} />
+      <Feeds feeds={posts} />
     </main>
   );
 };

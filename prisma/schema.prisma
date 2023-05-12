@@ -4,6 +4,8 @@
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["jsonProtocol"]
+  generator ="typescript-client"
+    output="../src/generated/prisma-client/"
 }
 
 datasource db {

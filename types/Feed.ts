@@ -1,14 +1,15 @@
 export interface Post {
   id: string;
   title: string;
-  content: string;
-  published: Boolean;
-  authorId: string;
-  createdAt: string;
+  content: string | null;
+  published: boolean;
+  authorId: string | null;
+  createdAt: Date;
 }
-export type PostWithAuthor = Post & {
-  author: { name: string | null; email: string | null };
-};
-export interface Feed extends Post {
-  author: { name: string | null; email: string | null };
+export interface User {
+  id: string;
+  name: string | null;
+  email: string | null;
+  createdAt: Date;
+  updatedAt: Date;
 }
